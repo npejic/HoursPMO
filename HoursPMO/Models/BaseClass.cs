@@ -10,10 +10,16 @@ namespace HoursPMO.Models
     /// </summary>
     public class BaseClass
     {
+        /// <summary>
+        /// Constructor that gives value to Created property (current date and time)
+        /// </summary>
         public BaseClass()
         {
             this.Created = DateTime.Now;
         }
+        /// <summary>
+        /// Property that stores current date and time of creation
+        /// </summary>
         public DateTime Created { get; set; }
     }
 }
