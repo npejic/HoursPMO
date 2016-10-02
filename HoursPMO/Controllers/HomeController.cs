@@ -6,13 +6,24 @@ using System.Web.Mvc;
 
 namespace HoursPMO.Controllers
 {
+    /// <summary>
+    /// Controller for default (index) page
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Action for Index page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Should be deleted
+        /// </summary>
+        /// <returns></returns>
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +31,10 @@ namespace HoursPMO.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Should be deleted
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

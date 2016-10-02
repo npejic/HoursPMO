@@ -7,8 +7,15 @@ using System.Web.Routing;
 
 namespace HoursPMO
 {
+    /// <summary>
+    /// Routing class
+    /// </summary>
     public class RouteConfig
     {
+        /// <summary>
+        /// Class for default and custom routes
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
