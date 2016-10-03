@@ -18,5 +18,10 @@ namespace HoursPMO.Models
         /// String that represents client name
         /// </summary>
         public string ClientName { get; set; }
+
+        /// <summary>
+        /// Navigation property for Project class
+        /// </summary>
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }
