@@ -22,17 +22,17 @@ namespace HoursPMO.Models
         public string ProjectName { get; set; }
 
         /// <summary>
-        /// 
+        /// ID for Responsible Person
         /// </summary>
         [ForeignKey("ResponsiblePerson")]
         public int ResponsiblePersonID { get; set; }
         /// <summary>
-        /// 
+        /// Navigation property to User class
         /// </summary>
         public virtual User ResponsiblePerson { get; set; }
 
         /// <summary>
-        /// 
+        /// ID for Client
         /// </summary>
         public int ClientID { get; set; }
         /// <summary>
