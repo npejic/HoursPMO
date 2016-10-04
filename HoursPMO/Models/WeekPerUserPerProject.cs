@@ -20,7 +20,9 @@ namespace HoursPMO.Models
         public int WeekNo { get; set; }
         //[Range(2010, 2025)]
         public int Year { get; set; }
-
+        [NotMapped]
+        public string YearAndWeekNo { get { return Year + "-" + WeekNo; } } 
+        
         public int UserID { get; set; }
         public int ProjectID { get; set; }
  
