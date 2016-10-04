@@ -7,13 +7,31 @@ using System.Data.Entity;
 
 namespace HoursPMO.DAL
 {
+    /// <summary>
+    /// Class that is used to connect to base
+    /// </summary>
     public class HoursContext : DbContext
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public HoursContext() : base("HoursContext") { }
 
+        /// <summary>
+        /// Connection to Clients table
+        /// </summary>
         public DbSet<Client> Clients { get; set; }
+        /// <summary>
+        /// Connection to Projects table
+        /// </summary>
         public DbSet<Project> Projects { get; set; }
-        public System.Data.Entity.DbSet<HoursPMO.Models.User> Users { get; set; }
-        public System.Data.Entity.DbSet<HoursPMO.Models.WeekPerUserPerProject> WeekPerUserPerProjects { get; set; }
+        /// <summary>
+        /// Connection to Users table
+        /// </summary>
+        public DbSet<User> Users { get; set; }
+        /// <summary>
+        /// Connection to WeekPerUserPerProject table
+        /// </summary>
+        public DbSet<WeekPerUserPerProject> WeekPerUserPerProjects { get; set; }
     }
 }
