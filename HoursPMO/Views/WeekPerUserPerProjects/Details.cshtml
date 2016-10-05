@@ -1,0 +1,106 @@
+﻿@model HoursPMO.Models.WeekPerUserPerProject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WeekPerUserPerProject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leaves)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leaves)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Possible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Possible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeekNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeekNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WeekPerUserPerProjectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
