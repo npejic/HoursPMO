@@ -6,6 +6,9 @@
 
 <h2>Index</h2>
 
+@using (Html.BeginForm())
+{ <p> Week: @Html.TextBox("SearchString1") </p>
+    <p> Year: @Html.TextBox("SearchString2") <input type="submit" value="Search" /></p> }
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

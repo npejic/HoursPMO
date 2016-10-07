@@ -15,14 +15,19 @@ namespace HoursPMO.Controllers
     {
         private HoursContext db = new HoursContext();
 
-        // GET: WeekPerUserPerProjects
-        public ActionResult Index()
+        public ActionResult Index(string searchString1, string searchString2)
         {
-            var weekPerUserPerProjects = db.WeekPerUserPerProjects.Include(w => w.Project).Include(w => w.User);
+            var weekPerUserPerProjects = from s in db.WeekPerUserPerProjects
+                                         select s;
+            if (!String.IsNullOrEmpty(searchString1) && !String.IsNullOrEmpty(searchString2))
+            {
+                var stringToInt1 = Convert.ToInt32(searchString1);
+                var stringToInt2 = Convert.ToInt32(searchString2);
+                weekPerUserPerProjects = weekPerUserPerProjects.Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
+            }
             return View(weekPerUserPerProjects.ToList());
         }
 
-        // GET: WeekPerUserPerProjects/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
