@@ -42,6 +42,10 @@
             @Html.DisplayNameFor(model => model.WeekNo)
         </th>
         <th>
+            Month
+            @*@Html.DisplayNameFor(model => model.)*@
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
         <th>
@@ -78,6 +82,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.WeekNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthNo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Year)

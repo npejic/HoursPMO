@@ -190,6 +190,7 @@
     <Content Include="Views\WeekPerUserPerProjects\Details.cshtml" />
     <Content Include="Views\WeekPerUserPerProjects\Edit.cshtml" />
     <Content Include="Views\WeekPerUserPerProjects\Index.cshtml" />
+    <Content Include="Views\WeekPerUserPerProjects\MonthReportSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

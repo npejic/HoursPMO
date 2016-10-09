@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HoursPMO.DAL;
 using HoursPMO.Models;
+using HoursPMO.ViewModels;
 
 namespace HoursPMO.Controllers
 {
@@ -23,9 +24,43 @@ namespace HoursPMO.Controllers
             {
                 var stringToInt1 = Convert.ToInt32(searchString1);
                 var stringToInt2 = Convert.ToInt32(searchString2);
+
+
                 weekPerUserPerProjects = weekPerUserPerProjects.Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
             }
             return View(weekPerUserPerProjects.ToList());
+        }
+
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="MonthNoSelectedString"></param>
+       /// <param name="YearSelectedString"></param>
+       /// <returns></returns>
+        public ActionResult MonthReportSelect(string MonthNoSelectedString, string YearSelectedString)
+        {
+            //var weekPerUserPerProjects = from s in db.WeekPerUserPerProjects
+            //                             select s;
+            //if (!String.IsNullOrEmpty(MonthNoSelectedString) && !String.IsNullOrEmpty(YearSelectedString))
+            //{
+                var MonthNoSelected = Convert.ToInt32(MonthNoSelectedString);
+                var YearSelected = Convert.ToInt32(YearSelectedString);
+
+                IQueryable<ProjectGroup> data = from project in db.WeekPerUserPerProjects.Include(w => w.Project)
+                                                where project.MonthNo == MonthNoSelected && project.Year == YearSelected
+                                                group project by project.Project into projectGroup
+                                                select new ProjectGroup()
+                                                {
+                                                    Project = projectGroup.Key,
+                                                    FTOCount = projectGroup.Sum(o => o.FTO),
+                                                    LeavesCount = projectGroup.Sum(o => o.Leaves),
+                                                    PossibleCount = projectGroup.Sum(o => o.Possible),
+                                                    ActualCount = projectGroup.Sum(o => o.Actual),
+                                                    BillableCount = projectGroup.Sum(o => o.Billable),
+                                                    WorkingDaysCount = projectGroup.Sum(o => o.WorkingDays)
+                                                };        
+            //}
+            return View(data.ToList());
         }
 
         public ActionResult Details(int? id)
