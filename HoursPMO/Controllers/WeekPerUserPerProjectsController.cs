@@ -57,6 +57,8 @@ namespace HoursPMO.Controllers
                 var MonthNoSelected = Convert.ToInt32(MonthNoSelectedString);
                 var YearSelected = Convert.ToInt32(YearSelectedString);
 
+                //umesto ovoga napraviti metodu koja vraća Listu od donjeg IQueryable-a
+                //i to staviti u return od View-a
                 IQueryable<ProjectGroup> data = from project in db.WeekPerUserPerProjects.Include(w => w.Project)
                                                 where project.MonthNo == MonthNoSelected && project.Year == YearSelected
                                                 group project by project.Project into projectGroup
