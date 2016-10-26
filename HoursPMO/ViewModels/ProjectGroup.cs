@@ -20,7 +20,7 @@ namespace HoursPMO.ViewModels
 
         public virtual Project Project { get; set; }
 
-        public List<ProjectGroup> SumForTheSelectedWeeks(List<int> selectedWeekInMonth, int YearSelected, HoursContext db)
+        public static List<ProjectGroup> SumForTheSelectedWeeks(List<int> selectedWeekInMonth, int YearSelected, HoursContext db)
         {
 
             var data = from project in db.WeekPerUserPerProjects.Include(p => p.Project)

@@ -48,8 +48,8 @@ namespace HoursPMO.Controllers
             {
                 selectedWeekInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
             }
-            ProjectGroup pg = new ProjectGroup();
-            var data = pg.SumForTheSelectedWeeks(selectedWeekInMonth, YearSelected, db);
+            //ProjectGroup pg = new ProjectGroup();
+            var data = ProjectGroup.SumForTheSelectedWeeks(selectedWeekInMonth, YearSelected, db);
             return View(data);    
         }
 
