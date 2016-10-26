@@ -39,41 +39,18 @@ namespace HoursPMO.Controllers
        /// <returns></returns>
         public ActionResult MonthReportSelect(string MonthNoSelectedString, string YearSelectedString)
         {
-            //var weekPerUserPerProjects = from s in db.WeekPerUserPerProjects
-            //                             select s;
-            //if (!String.IsNullOrEmpty(MonthNoSelectedString) && !String.IsNullOrEmpty(YearSelectedString))
-            //{
+            int MonthNoSelected = Convert.ToInt32(MonthNoSelectedString);
+            int YearSelected = Convert.ToInt32(YearSelectedString);
 
-            ////// Get the weeks in a month
-            ////DateTime date = DateTime.Today;
-            ////// first generate all dates in the month of 'date'
-            ////var dates = Enumerable.Range(1, DateTime.DaysInMonth(date.Year, date.Month)).Select(n => new DateTime(date.Year, date.Month, n));
-            ////// then filter the only the start of weeks
-            ////var weekends = from d in dates
-            ////               where d.DayOfWeek == DayOfWeek.Monday
-            ////               select d;
-
-            
-                var MonthNoSelected = Convert.ToInt32(MonthNoSelectedString);
-                var YearSelected = Convert.ToInt32(YearSelectedString);
-
-                //umesto ovoga napraviti metodu koja vraća Listu od donjeg IQueryable-a
-                //i to staviti u return od View-a
-                IQueryable<ProjectGroup> data = from project in db.WeekPerUserPerProjects.Include(w => w.Project)
-                                                where project.MonthNo == MonthNoSelected && project.Year == YearSelected
-                                                group project by project.Project into projectGroup
-                                                select new ProjectGroup()
-                                                {
-                                                    Project = projectGroup.Key,
-                                                    FTOCount = projectGroup.Sum(o => o.FTO),
-                                                    LeavesCount = projectGroup.Sum(o => o.Leaves),
-                                                    PossibleCount = projectGroup.Sum(o => o.Possible),
-                                                    ActualCount = projectGroup.Sum(o => o.Actual),
-                                                    BillableCount = projectGroup.Sum(o => o.Billable),
-                                                    WorkingDaysCount = projectGroup.Sum(o => o.WorkingDays)
-                                                };        
-            //}
-            return View(data.ToList());
+            WeeksInMonthAndYear.WeeksNumbers weekNumbers = new WeeksInMonthAndYear.WeeksNumbers();
+            List<int> selectedWeekInMonth = new List<int>();
+            if (MonthNoSelectedString != null && YearSelectedString != null)
+            {
+                selectedWeekInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
+            }
+            ProjectGroup pg = new ProjectGroup();
+            var data = pg.SumForTheSelectedWeeks(selectedWeekInMonth, YearSelected, db);
+            return View(data);    
         }
 
         public ActionResult Details(int? id)

@@ -108,6 +108,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WeeksInMonthAndYear">
+      <HintPath>..\..\WeeksInMonthAndYear\obj\Debug\WeeksInMonthAndYear.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
