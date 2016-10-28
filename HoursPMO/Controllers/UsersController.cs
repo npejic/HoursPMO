@@ -11,17 +11,27 @@ using HoursPMO.Models;
 
 namespace HoursPMO.Controllers
 {
+    /// <summary>
+    /// Controller for User table
+    /// </summary>
     public class UsersController : Controller
     {
         private HoursContext db = new HoursContext();
 
-        // GET: Users
+        /// <summary>
+        /// Index action
+        /// </summary>
+        /// <returns>complete User table in List format</returns>
         public ActionResult Index()
         {
             return View(db.Users.ToList());
         }
 
-        // GET: Users/Details/5
+        /// <summary>
+        /// Details action
+        /// </summary>
+        /// <param name="id">takes one parametar ID, that represents one selected User</param>
+        /// <returns>one user from table Users</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +46,10 @@ namespace HoursPMO.Controllers
             return View(user);
         }
 
-        // GET: Users/Create
+        /// <summary>
+        /// Create action
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();

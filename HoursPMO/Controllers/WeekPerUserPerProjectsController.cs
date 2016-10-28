@@ -12,10 +12,19 @@ using HoursPMO.ViewModels;
 
 namespace HoursPMO.Controllers
 {
+    /// <summary>
+    /// Controler for WeekPerUserPerProjects class
+    /// </summary>
     public class WeekPerUserPerProjectsController : Controller
     {
         private HoursContext db = new HoursContext();
 
+        /// <summary>
+        /// Index action of WeekPerUserPerProjectsController
+        /// </summary>
+        /// <param name="searchString1">week number for search display</param>
+        /// <param name="searchString2">year number for search display</param>
+        /// <returns></returns>
         public ActionResult Index(string searchString1, string searchString2)
         {
             var weekPerUserPerProjects = from s in db.WeekPerUserPerProjects
@@ -25,17 +34,16 @@ namespace HoursPMO.Controllers
                 var stringToInt1 = Convert.ToInt32(searchString1);
                 var stringToInt2 = Convert.ToInt32(searchString2);
 
-
                 weekPerUserPerProjects = weekPerUserPerProjects.Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
             }
             return View(weekPerUserPerProjects.ToList());
         }
 
        /// <summary>
-       /// 
+       /// Action that will calculate sum for User atributes, for month and year that is inputed in view
        /// </summary>
-       /// <param name="MonthNoSelectedString"></param>
-       /// <param name="YearSelectedString"></param>
+       /// <param name="MonthNoSelectedString">Month int number inputed in view</param>
+       /// <param name="YearSelectedString">Year int number inputed in view</param>
        /// <returns></returns>
         public ActionResult MonthReportSelect(string MonthNoSelectedString, string YearSelectedString)
         {
@@ -43,13 +51,14 @@ namespace HoursPMO.Controllers
             int YearSelected = Convert.ToInt32(YearSelectedString);
 
             WeeksInMonthAndYear.WeeksNumbers weekNumbers = new WeeksInMonthAndYear.WeeksNumbers();
-            List<int> selectedWeekInMonth = new List<int>();
+            List<int> selectedWeeksInMonth = new List<int>();
             if (MonthNoSelectedString != null && YearSelectedString != null)
             {
-                selectedWeekInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
+                selectedWeeksInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
             }
+            //TODO: izbaci ovo 
             //ProjectGroup pg = new ProjectGroup();
-            var data = ProjectGroup.SumForTheSelectedWeeks(selectedWeekInMonth, YearSelected, db);
+            var data = ProjectGroup.SumForTheSelectedWeeks(selectedWeeksInMonth, YearSelected, db);
             return View(data);    
         }
 
