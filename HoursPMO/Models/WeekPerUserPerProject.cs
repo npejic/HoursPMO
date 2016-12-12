@@ -51,11 +51,13 @@ namespace HoursPMO.Models
         /// </summary>
         [Range(2010, 2025)]
         public int Year { get; set; }
+
+        //TODO: izbaci ovo
         /// <summary>
         /// 
         /// </summary>
         //[Range(1, 12)]
-        public int MonthNo { get; set; }
+        //public int MonthNo { get; set; }
 
         //TODO: Delete this property
         /// <summary>

@@ -34,7 +34,8 @@ namespace HoursPMO.Controllers
                 var stringToInt1 = Convert.ToInt32(searchString1);
                 var stringToInt2 = Convert.ToInt32(searchString2);
 
-                weekPerUserPerProjects = weekPerUserPerProjects.Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
+                weekPerUserPerProjects = weekPerUserPerProjects
+                    .Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
             }
             return View(weekPerUserPerProjects.ToList());
         }

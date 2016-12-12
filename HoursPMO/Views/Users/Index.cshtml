@@ -12,14 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
+            User        
+    @*@Html.DisplayNameFor(model => model.UserName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsResponsiblePerson)
+            Responsible Person        
+    @*@Html.DisplayNameFor(model => model.IsResponsiblePerson)*@
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Created)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -31,9 +33,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.IsResponsiblePerson)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Created)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
             @Html.ActionLink("Details", "Details", new { id=item.UserID }) |

@@ -12,11 +12,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ClientName)
+            Client
+            @*@Html.DisplayNameFor(model => model.ClientName)*@
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Created)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -25,9 +26,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.ClientName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Created)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClientID }) |

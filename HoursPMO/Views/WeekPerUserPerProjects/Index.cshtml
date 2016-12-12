@@ -4,21 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Week Per User Per Project</h2>
 
 @using (Html.BeginForm())
-{ <p> Week: @Html.TextBox("SearchString1") </p>
-    <p> Year: @Html.TextBox("SearchString2") <input type="submit" value="Search" /></p> }
+{ <p> Week: @Html.TextBox("SearchString1") Year: @Html.TextBox("SearchString2") <input type="submit" value="Search" /></p> }
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Project.ProjectName)
+            Project
+            @*@Html.DisplayNameFor(model => model.Project.ProjectName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            User
+            @*@Html.DisplayNameFor(model => model.User.UserName)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FTO)
@@ -36,21 +37,19 @@
             @Html.DisplayNameFor(model => model.Billable)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WorkingDays)
+            Working Days
+            @*@Html.DisplayNameFor(model => model.WorkingDays)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WeekNo)
-        </th>
-        <th>
-            Month
-            @*@Html.DisplayNameFor(model => model.)*@
+            Week
+            @*@Html.DisplayNameFor(model => model.WeekNo)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Created)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -84,14 +83,11 @@
             @Html.DisplayFor(modelItem => item.WeekNo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MonthNo)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Year)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Created)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WeekPerUserPerProjectID }) |
             @Html.ActionLink("Details", "Details", new { id=item.WeekPerUserPerProjectID }) |
