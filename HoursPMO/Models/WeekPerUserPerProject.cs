@@ -52,19 +52,12 @@ namespace HoursPMO.Models
         [Range(2010, 2025)]
         public int Year { get; set; }
 
-        //TODO: izbaci ovo
-        /// <summary>
-        /// 
-        /// </summary>
-        //[Range(1, 12)]
-        //public int MonthNo { get; set; }
-
         //TODO: Delete this property
         /// <summary>
         /// String that combines Year and Week Number, format type yyyy-ww
         /// </summary>
-        [NotMapped]
-        public string YearAndWeekNo { get { return Year + "-" + WeekNo; } } 
+        //[NotMapped]
+        //public string YearAndWeekNo { get { return Year + "-" + WeekNo; } } 
         
         /// <summary>
         /// 
