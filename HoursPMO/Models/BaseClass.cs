@@ -8,7 +8,7 @@ namespace HoursPMO.Models
     /// <summary>
     /// Class from which will all classes in Model inherit creation date
     /// </summary>
-    public class BaseClass
+    abstract public class BaseClass
     {
         /// <summary>
         /// Constructor that gives value to Created property (current date and time)
