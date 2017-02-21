@@ -15,11 +15,9 @@
     <tr>
         <th>
             Project
-            @*@Html.DisplayNameFor(model => model.Project.ProjectName)*@
         </th>
         <th>
             User
-            @*@Html.DisplayNameFor(model => model.User.UserName)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FTO)
@@ -38,18 +36,13 @@
         </th>
         <th>
             Working Days
-            @*@Html.DisplayNameFor(model => model.WorkingDays)*@
         </th>
         <th>
             Week
-            @*@Html.DisplayNameFor(model => model.WeekNo)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>*@
         <th></th>
     </tr>
 
@@ -85,12 +78,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Year)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>*@
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WeekPerUserPerProjectID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WeekPerUserPerProjectID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.WeekPerUserPerProjectID })
         </td>
     </tr>
