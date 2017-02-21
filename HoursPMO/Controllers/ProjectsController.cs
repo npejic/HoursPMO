@@ -41,7 +41,7 @@ namespace HoursPMO.Controllers
         public ActionResult Create()
         {
             ViewBag.ClientID = new SelectList(db.Clients, "ClientID", "ClientName");
-            ViewBag.ResponsiblePersonID = new SelectList(db.Users, "UserID", "UserName");
+            ViewBag.ResponsiblePersonID = new SelectList(db.Users.Where(s=>s.IsResponsiblePerson==true), "UserID", "UserName");
             return View();
         }
 
