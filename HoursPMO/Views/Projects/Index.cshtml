@@ -13,19 +13,13 @@
     <tr>
         <th>
             Client
-            @*@Html.DisplayNameFor(model => model.Client.ClientName)*@
         </th>
         <th>
             Responsible User
-            @*@Html.DisplayNameFor(model => model.ResponsiblePerson.UserName)*@
         </th>
         <th>
             Project
-            @*@Html.DisplayNameFor(model => model.ProjectName)*@
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>*@
         <th></th>
     </tr>
 
@@ -40,12 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProjectName)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>*@
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
         </td>
     </tr>
