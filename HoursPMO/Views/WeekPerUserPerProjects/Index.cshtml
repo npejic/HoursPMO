@@ -7,7 +7,7 @@
 <h2>Week Per User Per Project</h2>
 
 @using (Html.BeginForm())
-{ <p> Week: @Html.TextBox("SearchString1") Year: @Html.TextBox("SearchString2") <input type="submit" value="Search" /></p> }
+{ <p> Week: @Html.TextBox("weekSelectedString") Year: @Html.TextBox("yearSelectedString") <input type="submit" value="Search" /></p> }
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

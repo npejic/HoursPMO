@@ -25,17 +25,17 @@ namespace HoursPMO.Controllers
         /// <param name="searchString1">week number for search display</param>
         /// <param name="searchString2">year number for search display</param>
         /// <returns></returns>
-        public ActionResult Index(string searchString1, string searchString2)
+        public ActionResult Index(string weekSelectedString, string yearSelectedString)
         {
             var weekPerUserPerProjects = from s in db.WeekPerUserPerProjects
                                          select s;
-            if (!String.IsNullOrEmpty(searchString1) && !String.IsNullOrEmpty(searchString2))
+            if (!String.IsNullOrEmpty(weekSelectedString) && !String.IsNullOrEmpty(yearSelectedString))
             {
-                var stringToInt1 = Convert.ToInt32(searchString1);
-                var stringToInt2 = Convert.ToInt32(searchString2);
+                var weekSelectedInt = Convert.ToInt32(weekSelectedString);
+                var yearSelectedInt = Convert.ToInt32(yearSelectedString);
 
                 weekPerUserPerProjects = weekPerUserPerProjects
-                    .Where(s => s.WeekNo == stringToInt1 && s.Year == stringToInt2);
+                    .Where(s => s.WeekNo == weekSelectedInt && s.Year == yearSelectedInt);
             }
             return View(weekPerUserPerProjects.ToList());
         }
