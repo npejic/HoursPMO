@@ -22,8 +22,8 @@ namespace HoursPMO.Controllers
         /// <summary>
         /// Index action of WeekPerUserPerProjectsController
         /// </summary>
-        /// <param name="searchString1">week number for search display</param>
-        /// <param name="searchString2">year number for search display</param>
+        /// <param name="weekSelectedString">week number for search display</param>
+        /// <param name="yearSelectedString">year number for search display</param>
         /// <returns></returns>
         public ActionResult Index(string weekSelectedString, string yearSelectedString)
         {
