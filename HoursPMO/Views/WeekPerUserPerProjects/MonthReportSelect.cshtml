@@ -3,21 +3,21 @@
     ViewBag.Title = "MonthReportSelect";
 }
 
-<h2>MonthReportSelect</h2>
+<h2>Sums for month by projects</h2>
 
 @using (Html.BeginForm())
-{ <p> Month: @Html.TextBox("MonthNoSelectedString") </p>
-    <p> Year: @Html.TextBox("YearSelectedString") <input type="submit" value="Search" /></p> }
+{ <p> Month: @Html.TextBox("MonthNoSelectedString")  Year: @Html.TextBox("YearSelectedString") <input type="submit" value="Search" /></p> }
 <p>
 
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Project.ProjectName)
+                Project
+                @*@Html.DisplayNameFor(model => model.Project.ProjectName)*@
                 @*            ProjectID*@
             </th>
             <th>
-                FTO Sum
+                FTO
             </th>
             <th>
                 Leaves
@@ -32,7 +32,7 @@
                 Billable
             </th>
             <th>
-                WorkingDays
+                Working Days
             </th>
         </tr>
         @foreach (var item in Model)
