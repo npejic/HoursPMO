@@ -204,7 +204,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WeeksInMonthAndYear\WeeksInMonthAndYear.csproj">
+    <ProjectReference Include="..\WeeksInMonthAndYear\WeeksInMonthAndYear.csproj">
       <Project>{f8508d76-9a31-466d-9173-4050b5ebda7c}</Project>
       <Name>WeeksInMonthAndYear</Name>
     </ProjectReference>
