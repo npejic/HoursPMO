@@ -51,14 +51,15 @@ namespace HoursPMO.Controllers
             int MonthNoSelected = Convert.ToInt32(MonthNoSelectedString);
             int YearSelected = Convert.ToInt32(YearSelectedString);
 
+            //selectedWeeksInMonth gets ordinals of weeks
+            //TODO: make WeeksNumberInYearPerMonth method static
             WeeksInMonthAndYear.WeeksNumbers weekNumbers = new WeeksInMonthAndYear.WeeksNumbers();
             List<int> selectedWeeksInMonth = new List<int>();
             if (MonthNoSelectedString != null && YearSelectedString != null)
             {
                 selectedWeeksInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
             }
-            //TODO: izbaci ovo 
-            //ProjectGroup pg = new ProjectGroup();
+         
             var data = ProjectGroup.SumForTheSelectedWeeks(selectedWeeksInMonth, YearSelected, db);
             return View(data);    
         }
