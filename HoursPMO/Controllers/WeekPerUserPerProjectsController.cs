@@ -52,12 +52,10 @@ namespace HoursPMO.Controllers
             int YearSelected = Convert.ToInt32(YearSelectedString);
 
             //selectedWeeksInMonth gets ordinals of weeks
-            //TODO: make WeeksNumberInYearPerMonth method static
-            WeeksInMonthAndYear.WeeksNumbers weekNumbers = new WeeksInMonthAndYear.WeeksNumbers();
             List<int> selectedWeeksInMonth = new List<int>();
             if (MonthNoSelectedString != null && YearSelectedString != null)
             {
-                selectedWeeksInMonth = weekNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
+                selectedWeeksInMonth = WeeksInMonthAndYear.WeeksNumbers.WeeksNumberInYearPerMonth(MonthNoSelected, YearSelected);
             }
          
             var data = ProjectGroup.SumForTheSelectedWeeks(selectedWeeksInMonth, YearSelected, db);
@@ -78,7 +76,6 @@ namespace HoursPMO.Controllers
             return View(weekPerUserPerProject);
         }
 
-        // GET: WeekPerUserPerProjects/Create
         public ActionResult Create()
         {
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "ProjectName");
@@ -86,9 +83,6 @@ namespace HoursPMO.Controllers
             return View();
         }
 
-        // POST: WeekPerUserPerProjects/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "WeekPerUserPerProjectID,FTO,Leaves,Possible,Actual,Billable,WorkingDays,WeekNo,Year,UserID,ProjectID,Created")] WeekPerUserPerProject weekPerUserPerProject)
@@ -105,7 +99,6 @@ namespace HoursPMO.Controllers
             return View(weekPerUserPerProject);
         }
 
-        // GET: WeekPerUserPerProjects/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -122,9 +115,6 @@ namespace HoursPMO.Controllers
             return View(weekPerUserPerProject);
         }
 
-        // POST: WeekPerUserPerProjects/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "WeekPerUserPerProjectID,FTO,Leaves,Possible,Actual,Billable,WorkingDays,WeekNo,Year,UserID,ProjectID,Created")] WeekPerUserPerProject weekPerUserPerProject)
@@ -140,7 +130,6 @@ namespace HoursPMO.Controllers
             return View(weekPerUserPerProject);
         }
 
-        // GET: WeekPerUserPerProjects/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -155,7 +144,6 @@ namespace HoursPMO.Controllers
             return View(weekPerUserPerProject);
         }
 
-        // POST: WeekPerUserPerProjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

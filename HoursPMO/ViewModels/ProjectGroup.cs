@@ -47,7 +47,7 @@ namespace HoursPMO.ViewModels
         public virtual Project Project { get; set; }
 
         /// <summary>
-        /// Method that returns List of ProjectGroup object with properties that represents sum for each User atribute
+        /// Method that returns List of ProjectGroup object with properties that represents sum for each Project 
         /// in selected weeks and year
         /// </summary>
         /// <param name="selectedWeeksInMonth">List of Int that holds weeks numbers for calculating sum</param>

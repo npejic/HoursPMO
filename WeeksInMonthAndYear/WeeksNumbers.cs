@@ -8,11 +8,13 @@ namespace WeeksInMonthAndYear
 {
     public class WeeksNumbers
     {
-        public List<int> WeeksNumberInYearPerMonth(int SelectedMonthNo, int SelectedYearNo)
+        //method returns list with int that represent week numbers in selected month and year
+        public static List<int> WeeksNumberInYearPerMonth(int SelectedMonthNo, int SelectedYearNo)
         {
             int weekCounter = 0;
-            //FirstMondayInYear initially get value of firtst day in year, whatever that day is
-            DateTime FirstMondayInYear = new DateTime(SelectedYearNo, 1, 1);
+            //FirstMondayInYear initially get value of first day in year, whatever that day is
+            DateTime firstDayInYear = new DateTime(SelectedYearNo, 1, 1);
+            DateTime FirstMondayInYear = firstDayInYear;
 
             //while loop adds one day to FirstMondayInYear until FirstMondayInYear really is Monday
             while (FirstMondayInYear.DayOfWeek != DayOfWeek.Monday)
@@ -24,7 +26,7 @@ namespace WeeksInMonthAndYear
             //endDate represents last day in selected month and year, whatever that day is
             DateTime endDate = new DateTime(SelectedYearNo, SelectedMonthNo, DateTime.DaysInMonth(SelectedYearNo, SelectedMonthNo));
             
-            //dates get all Mondays from first Monday in year until last monday in selected month and year 
+            //dates get all Mondays from first Monday in year until last day in selected month and year 
             for (var dt = FirstMondayInYear; dt <= endDate; dt = dt.AddDays(7))
             {
                 dates.Add(dt);
@@ -34,7 +36,7 @@ namespace WeeksInMonthAndYear
             weekCounter = dates.Count();
             
             //week counts as 1 if number of working days is 3,4 or 5 days
-            if (FirstMondayInYear.DayOfWeek == DayOfWeek.Tuesday || FirstMondayInYear.DayOfWeek == DayOfWeek.Wednesday)
+            if (firstDayInYear.DayOfWeek == DayOfWeek.Tuesday || FirstMondayInYear.DayOfWeek == DayOfWeek.Wednesday)
                 weekCounter++;
             if (endDate.DayOfWeek == DayOfWeek.Monday || endDate.DayOfWeek == DayOfWeek.Tuesday)
                 weekCounter--;
